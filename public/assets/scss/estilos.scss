@@ -1,0 +1,184 @@
+//Fuentes
+$primary-font: 'Anton', sans-serif;
+
+//Colores letra
+$primary-color: #B3B5B4;
+$secondary-color: #d41818;
+
+//Botones
+$principal: #1D1D1D;
+$primary: $principal;
+$btn-padding-y: 0.5rem;
+$btn-padding-x: 2rem;
+
+//Color body
+$color-fondo-oscuro: #212529;
+
+
+@import "fonts.scss";
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
+@import "../../vendor/bootstrap-5.0.2/scss/bootstrap.scss";
+
+
+//////////BOTONES//////////
+body{
+    background-color: $color-fondo-oscuro;
+    color: $primary-color;
+}
+
+//////////BOTONES//////////
+.btn-primary{
+    border: 3px solid $secondary-color;
+    color: $secondary-color;
+    font-weight: 700;
+}
+
+.navbar .navbar-collapse .nav-link:hover {
+    color: $secondary-color;
+}
+
+.btn-primary:hover {
+    transform: scale(1.1); // Aumenta el tamaño un 10%
+    transition: transform 0.3s ease; // Hace que la animación sea suave
+}
+
+//////////LOGO//////////
+.logo {
+    opacity: 0;
+    animation: fadeIn 3s ease forwards;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.logo:hover {
+    transform: scale(1.2);
+    transition: transform 0.3s ease;
+}
+
+//////////IMAGEN DE FONDO//////////
+.bg-custom {
+    background-image: url('../img/imagenHotel.jpg'); 
+    background-size: cover;
+    background-position: center; 
+    background-repeat: no-repeat; 
+    height: 100vh; 
+    width: 100%; 
+}
+
+h1 {
+    font-family: $primary-font;
+    color: white;
+    
+}
+
+.featurette {
+    margin: 5rem;
+}
+
+
+.featurette-heading {
+    font-family: $primary-font;
+    font-weight: 400;
+    color: $secondary-color;
+}
+
+.col-md-6 {
+    height: 100vh;
+    display: flex;
+    align-items: center; 
+    justify-content: center;
+    width: 530px;
+    height: 597px; 
+}
+
+.image-container {
+    overflow: hidden;
+    height: 300px;
+}
+.card{
+    background-color: #0F0F0F;
+    width: 530px;
+    height: 597px; 
+}
+
+.card-image {
+    transition: all 1s cubic-bezier(.04,-.03,0,1.01);
+    object-fit: cover;
+    width: 100%;
+    height: 100%; 
+}
+
+.card:hover .card-image {
+    transform: scale(1.1);
+}
+
+.tarjetas {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.weather-widget {
+    width: 100%; 
+    display: block; 
+}
+
+.parallax1 {
+    background-image: url('../img/imagenHotel.jpg') ;
+    height: 100vh;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.parallax2 {
+    background-image: url('../img/hotel-grand-continental2.jpg') ;
+    height: 60vh;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-top: 50px;
+}
+.content {
+    height: 500px;
+    text-align: center;
+    padding: 50px;
+}
+
+footer{
+    background-color: $secondary-color;
+}
+
+.social-link{
+    font-size: 2rem;
+}
+
+#scrollToTopBtn {
+    position: fixed;
+    bottom: 20px; /* Espaciado desde el borde inferior */
+    right: 20px; /* Espaciado desde el borde derecho */
+    display: none; /* Ocultarlo inicialmente */
+    z-index: 1000; /* Asegurarse de que esté encima de otros elementos */
+    border: none;
+    background-color: #d41818; /* Color llamativo */
+    color: white;
+    font-size: 1.5rem;
+    border-radius: 50%; /* Hacer el botón redondo */
+    padding: 10px 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    transition: opacity 0.3s, transform 0.3s;
+}
+
+#scrollToTopBtn:hover {
+    background-color: #b11313; /* Oscurece el botón al pasar el mouse */
+    transform: scale(1.1); /* Aumenta el tamaño ligeramente al pasar el mouse */
+}
