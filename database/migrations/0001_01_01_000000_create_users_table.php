@@ -19,6 +19,15 @@ return new class extends Migration
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
+
+            //Campos adicionales para reservas
+            $table->string('nombre')->nullable();
+            $table->string('apellidos')->nullable();
+            $table->string('telefono')->nullable();
+            $table->string('imagenUser')->nullable();
+            
+            $table->unsignedBigInteger('idRol');
+            $table->foreign('idRol')->references('id')->on('roles')->onDelete('cascade')->onUpdate('cascade')->after('id');
         });
 
         Schema::create('password_reset_tokens', function (Blueprint $table) {
