@@ -1,0 +1,142 @@
+/* =========================================================
+   BOTONES.SCSS - Grand Hotel Continental
+   Sobrescribe el foco azul de Bootstrap por uno dorado.
+   ========================================================= */
+
+// ---------- VARIABLES ----------
+$color-oro:        #c9a961;
+$color-oro-oscuro: #a8893f;
+$color-oro-claro:  #e6d3a3;
+$color-negro:      #1a1a1a;
+$color-blanco:     #ffffff;
+$color-error:      #c0392b;
+
+// Sombras
+$sombra-foco:     0 0 0 .25rem rgba(201, 169, 97, .35);
+$sombra-foco-fuerte: 0 0 0 .25rem rgba(201, 169, 97, .55);
+
+
+// ---------- MIXIN reutilizable ----------
+// Aplica el efecto de foco dorado a cualquier elemento
+@mixin foco-dorado {
+    outline: none !important;
+    box-shadow: $sombra-foco !important;
+    border-color: $color-oro !important;
+}
+
+
+// ---------- BOTONES PRINCIPALES ----------
+.btn {
+    // Quitar el azul de Bootstrap al hacer focus/active
+    &:focus,
+    &:active,
+    &.active,
+    &:focus-visible {
+        @include foco-dorado;
+    }
+
+    // Botón primario (dorado)
+    &.btn-primary {
+        &:focus,
+        &:active,
+        &.active {
+            background-color: $color-oro-oscuro !important;
+            border-color: $color-oro-oscuro !important;
+            box-shadow: $sombra-foco-fuerte !important;
+        }
+    }
+
+    // Botón outline (borde dorado)
+    &.btn-outline-primary {
+        &:focus,
+        &:active {
+            background-color: $color-oro !important;
+            color: $color-negro !important;
+            box-shadow: $sombra-foco !important;
+        }
+    }
+
+    // Botón oscuro
+    &.btn-dark {
+        &:focus,
+        &:active {
+            box-shadow: $sombra-foco !important;
+        }
+    }
+}
+
+
+// ---------- INPUTS / SELECTS / TEXTAREAS ----------
+.form-control,
+.form-select {
+    &:focus {
+        @include foco-dorado;
+    }
+}
+
+
+// ---------- ENLACES ----------
+a {
+    &:focus,
+    &:focus-visible {
+        outline: 2px solid $color-oro;
+        outline-offset: 2px;
+        border-radius: 2px;
+    }
+}
+
+
+// ---------- BOTONES DEL NAVBAR-TOGGLER ----------
+.navbar-toggler {
+    &:focus {
+        box-shadow: $sombra-foco !important;
+    }
+}
+
+
+// ---------- CONTROLES DEL CAROUSEL ----------
+.carousel-control-prev,
+.carousel-control-next {
+    &:focus {
+        outline: 2px solid $color-oro;
+    }
+}
+
+
+// ---------- BOTÓN VOLVER ARRIBA ----------
+.scroll-to-top {
+    &:focus,
+    &:active {
+        @include foco-dorado;
+    }
+}
+
+
+// ---------- CHECKBOXES Y RADIOS ----------
+.form-check-input {
+    &:focus {
+        @include foco-dorado;
+    }
+
+    &:checked {
+        background-color: $color-oro;
+        border-color: $color-oro-oscuro;
+    }
+}
+
+
+// ---------- BOTONES "CLOSE" (alertas dismissibles) ----------
+.btn-close {
+    &:focus {
+        @include foco-dorado;
+    }
+}
+
+
+// ---------- PAGINATION ----------
+.page-link {
+    &:focus {
+        box-shadow: $sombra-foco !important;
+        color: $color-oro-oscuro;
+    }
+}

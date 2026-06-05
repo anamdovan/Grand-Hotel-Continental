@@ -1,6 +1,83 @@
+/* =========================================================
+   FONTS.CSS - Grand Hotel Continental
+   Todas las tipografías cargadas desde archivos locales
+   ubicados en /public/assets/fonts/
+   ========================================================= */
+
+/* ---------- ICONOS DE BOOTSTRAP ---------- */
+@import url('https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css');
+
+/* =========================================================
+   PLAYFAIR DISPLAY  -  títulos elegantes (serif)
+   ========================================================= */
 @font-face {
-  font-family: "Anton";
-  src: url("../fonts/Anton/Anton-Regular.ttf") format("truetype");
-  font-weight: normal;
-  font-style: normal;
-}/*# sourceMappingURL=fonts.css.map */
+    font-family: "Playfair Display";
+    src: url("../fonts/PlayfairDisplay/PlayfairDisplay-Regular.ttf") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: "Playfair Display";
+    src: url("../fonts/PlayfairDisplay/PlayfairDisplay-Medium.ttf") format("truetype");
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: "Playfair Display";
+    src: url("../fonts/PlayfairDisplay/PlayfairDisplay-SemiBold.ttf") format("truetype");
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: "Playfair Display";
+    src: url("../fonts/PlayfairDisplay/PlayfairDisplay-Bold.ttf") format("truetype");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* =========================================================
+   INTER  -  cuerpo del texto (sans-serif moderna)
+   ========================================================= */
+@font-face {
+    font-family: "Inter";
+    src: url("../fonts/Inter/Inter_18pt-Light.ttf") format("truetype");
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: "Inter";
+    src: url("../fonts/Inter/Inter_18pt-Regular.ttf") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: "Inter";
+    src: url("../fonts/Inter/Inter_18pt-Medium.ttf") format("truetype");
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: "Inter";
+    src: url("../fonts/Inter/Inter_18pt-SemiBold.ttf") format("truetype");
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* =========================================================
+   ANTON  -  decorativa para el banner de inicio
+   ========================================================= */
+@font-face {
+    font-family: "Anton";
+    src: url("../fonts/Anton/Anton-Regular.ttf") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}

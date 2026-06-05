@@ -1,0 +1,98 @@
+
+.btn:focus,
+.btn:active,
+.btn.active {
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+.btn:focus-visible {
+    outline: none !important;
+    box-shadow: 0 0 0 .25rem rgba(201, 169, 97, .35) !important;
+}
+
+.btn.btn-primary:focus,
+.btn.btn-primary:active,
+.btn.btn-primary.active {
+    background-color: #a8893f !important;
+    border-color: #a8893f !important;
+    box-shadow: none !important;
+}
+
+.btn.btn-outline-primary:focus,
+.btn.btn-outline-primary:active {
+    background-color: #c9a961 !important;
+    color: #1a1a1a !important;
+    box-shadow: none !important;
+}
+
+.nav-link:focus,
+.nav-link:active,
+.nav-link:focus-visible,
+.dropdown-toggle:focus,
+.dropdown-toggle:active,
+.dropdown-toggle:focus-visible {
+    outline: none !important;
+    box-shadow: none !important;
+    border-color: transparent !important;
+}
+
+.btn.btn-dark:focus,
+.btn.btn-dark:active {
+    box-shadow: 0 0 0 .25rem rgba(201, 169, 97, .35) !important;
+}
+
+.form-control:focus,
+.form-select:focus {
+    outline: none !important;
+    box-shadow: 0 0 0 .25rem rgba(201, 169, 97, .35) !important;
+    border-color: #c9a961 !important;
+}
+
+
+a:focus,
+a:active {
+    outline: none !important;
+}
+a:focus-visible:not(.nav-link):not(.dropdown-toggle):not(.dropdown-item):not(.btn):not(.navbar-brand) {
+    outline: 2px solid #c9a961;
+    outline-offset: 2px;
+    border-radius: 2px;
+}
+
+.navbar-toggler:focus {
+    box-shadow: 0 0 0 .25rem rgba(201, 169, 97, .35) !important;
+}
+
+.carousel-control-prev:focus,
+.carousel-control-next:focus {
+    outline: 2px solid #c9a961;
+}
+
+.scroll-to-top:focus,
+.scroll-to-top:active {
+    outline: none !important;
+    box-shadow: 0 0 0 .25rem rgba(201, 169, 97, .35) !important;
+    border-color: #c9a961 !important;
+}
+
+.form-check-input:focus {
+    outline: none !important;
+    box-shadow: 0 0 0 .25rem rgba(201, 169, 97, .35) !important;
+    border-color: #c9a961 !important;
+}
+.form-check-input:checked {
+    background-color: #c9a961;
+    border-color: #a8893f;
+}
+
+.btn-close:focus {
+    outline: none !important;
+    box-shadow: 0 0 0 .25rem rgba(201, 169, 97, .35) !important;
+    border-color: #c9a961 !important;
+}
+
+.page-link:focus {
+    box-shadow: 0 0 0 .25rem rgba(201, 169, 97, .35) !important;
+    color: #a8893f;
+}

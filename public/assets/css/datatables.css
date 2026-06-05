@@ -1,0 +1,68 @@
+/* =========================================================
+   GRAND HOTEL CONTINENTAL - Overrides para DataTables
+   ---------------------------------------------------------
+   Sobrescribe los colores azules de la paginación
+   con el dorado del hotel.
+   ========================================================= */
+
+/* ---------- PAGINACIÓN (Anterior / 1 / 2 / Siguiente) ---------- */
+
+/* Los enlaces normales (números, Anterior, Siguiente) */
+.dataTables_wrapper .pagination .page-link,
+.dt-paging .page-link {
+    color: var(--color-oro-oscuro);
+    border-color: #e6d3a3;
+}
+
+/* Hover */
+.dataTables_wrapper .pagination .page-link:hover,
+.dt-paging .page-link:hover {
+    color: var(--color-blanco);
+    background-color: var(--color-oro);
+    border-color: var(--color-oro);
+}
+
+/* Foco accesibilidad: sombra dorada en vez de azul */
+.dataTables_wrapper .pagination .page-link:focus,
+.dt-paging .page-link:focus {
+    box-shadow: 0 0 0 0.25rem rgba(201, 169, 97, .35);
+    color: var(--color-oro-oscuro);
+}
+
+/* Página activa */
+.dataTables_wrapper .pagination .page-item.active .page-link,
+.dt-paging .page-item.active .page-link {
+    background-color: var(--color-oro);
+    border-color: var(--color-oro);
+    color: var(--color-blanco);
+}
+
+/* Deshabilitados (cuando no se puede ir más atrás/delante) */
+.dataTables_wrapper .pagination .page-item.disabled .page-link,
+.dt-paging .page-item.disabled .page-link {
+    color: #adadad;
+    background-color: var(--color-blanco);
+    border-color: #e6d3a3;
+}
+
+
+/* ---------- CAJAS DE BÚSQUEDA Y SELECT ---------- */
+
+/* Foco en el input de "Buscar:" y el select de "Mostrar X" */
+.dataTables_wrapper input:focus,
+.dataTables_wrapper select:focus,
+.dt-search input:focus,
+.dt-length select:focus {
+    outline: none;
+    border-color: var(--color-oro);
+    box-shadow: 0 0 0 0.2rem rgba(201, 169, 97, .25);
+}
+
+
+/* ---------- FLECHAS DE ORDENACIÓN ---------- */
+
+/* Color de las cabeceras cuando están ordenadas */
+table.dataTable thead .sorting_asc,
+table.dataTable thead .sorting_desc {
+    color: var(--color-oro-oscuro);
+}
