@@ -31,12 +31,13 @@ Proyecto FTG del Ciclo Formativo de Grado Superior en Desarrollo de Aplicaciones
 | Capa | Tecnología |
 |------|------------|
 | Backend | PHP 8.2 + Laravel 12 |
-| Base de datos | MariaDB (XAMPP) |
+| Base de datos | MariaDB 10.11 |
 | ORM | Eloquent |
 | Frontend | HTML5, CSS3 (Bootstrap 5.0.2), JavaScript ES6, SASS |
 | Librerías JS | jQuery, DataTables 2.2, Chart.js |
 | Iconos | Bootstrap Icons |
-| Servidor | Apache 2.4 (XAMPP) |
+| Servidor | Apache 2.4 |
+| Despliegue | Docker + Docker Compose (3 contenedores: app, db, pma) |
 | Control de versiones | Git + GitHub |
 
 
@@ -89,6 +90,42 @@ Proyecto FTG del Ciclo Formativo de Grado Superior en Desarrollo de Aplicaciones
    ```
    http://localhost/Grand-Hotel-Continental/public/
    ```
+
+
+## Despliegue con Docker
+
+El proyecto incluye un `Dockerfile` y un `docker-compose.yml` que orquesta
+**3 contenedores**: la aplicación (Laravel + Apache + PHP 8.2), la base de
+datos (MariaDB) y phpMyAdmin para administrar la base de datos.
+
+**Requisito:** tener [Docker Desktop](https://www.docker.com/products/docker-desktop/)
+instalado y arrancado.
+
+**1. Levantar los tres contenedores:**
+```bash
+docker-compose up -d --build
+```
+
+**2. Configurar Laravel dentro del contenedor (solo la primera vez):**
+```bash
+docker-compose exec app bash
+composer install
+php artisan key:generate
+php artisan migrate:fresh --seed
+exit
+```
+
+**3. Acceder a la aplicación:**
+- Hotel: http://localhost:8080
+- phpMyAdmin: http://localhost:8081 (usuario `laravel`, contraseña `laravel1234`)
+
+**Comandos útiles:**
+| Comando | Para qué |
+|---|---|
+| `docker-compose up -d` | Arrancar los contenedores (sin reconstruir) |
+| `docker-compose down` | Parar los contenedores |
+| `docker-compose logs app` | Ver los logs del contenedor de la app |
+| `docker ps` | Listar contenedores en ejecución |
 
 
 ## Usuarios de prueba

@@ -1,0 +1,16 @@
+# Archivos y carpetas que NO se copian dentro de la imagen Docker.
+# Igual que .gitignore, evita copiar lo que no hace falta dentro
+# del contenedor (más rápido y más ligero).
+
+/vendor
+/node_modules
+/.git
+/.idea
+/.vscode
+.env
+.env.backup
+.env.production
+/storage/logs/*
+/storage/framework/cache/*
+/storage/framework/sessions/*
+/storage/framework/views/*
