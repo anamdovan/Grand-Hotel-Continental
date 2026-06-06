@@ -156,6 +156,15 @@ class UsuariosController extends Controller
                 ->with('error', 'Usuario no encontrado.');
         }
 
+        $tieneReservasActivas = $usuario->reservas()
+            ->whereIn('estado', ['pendiente', 'confirmada'])
+            ->exists();
+
+        if ($tieneReservasActivas){
+            return redirect('/admin/usuarios')
+                ->with('error', 'No se puede eliminar el usuarios porque tiene reservas activas');
+        }    
+    
         $usuario->delete();
 
         return redirect('/admin/usuarios')
