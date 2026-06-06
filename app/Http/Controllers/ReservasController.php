@@ -85,7 +85,8 @@ class ReservasController extends Controller
         $reserva->save();
 
         // Redirigir al listado de reservas
-        return redirect('/admin/reservas');
+        return redirect('/admin/reservas')
+            ->with('mensaje', 'Reserva creada correctamente.');
     }
 
     public function mostrarFormEd($id)
@@ -150,15 +151,17 @@ class ReservasController extends Controller
 
         $reserva->save();
 
-        return redirect('/admin/reservas');
+        return redirect('/admin/reservas')
+            ->with('mensaje', 'Reserva actualizada correctamente.');
     }
 
 
     public function eliminar($id)
     {
         $reserva = Reserva::where('id', $id)->first();
-        $reserva->delete();  
-        return redirect('/admin/reservas');
+        $reserva->delete();
+        return redirect('/admin/reservas')
+            ->with('mensaje', 'Reserva eliminada correctamente.');
     }
 
     public function listar()
