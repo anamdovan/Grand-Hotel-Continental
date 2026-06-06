@@ -101,7 +101,7 @@ class UsuariosController extends Controller
 
 
     //  editar($id)
-    //  → Guarda los cambios del usuario editado.
+    //  Guarda los cambios del usuario editado.
 
     public function editar($id, Request $request)
     {

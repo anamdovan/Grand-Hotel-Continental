@@ -1,28 +1,4 @@
-{{--
-======================================================================
- LAYOUT PRINCIPAL DE LA WEB PÚBLICA
-----------------------------------------------------------------------
-  Es la plantilla BASE que usan TODAS las páginas vistas por el cliente:
-    - inicio.blade.php
-    - inicioSesion.blade.php
-    - formularioRegistro.blade.php
-    - habitacionesCliente.blade.php
-    - detalleHabitacion.blade.php
-    - reservarCliente.blade.php
-    - miCuenta.blade.php
 
-  Las páginas individuales hacen @extends('layouts.publico') y solo
-  rellenan los bloques @section('contenido') y @section('js').
-  De esta manera la navbar y el footer NO se repiten en cada vista.
-
-  ELEMENTOS COMUNES:
-    - <head>: CSS, fuentes, CSRF token
-    - Navbar (cambia según @auth/@guest)
-    - Footer con contacto y redes sociales
-    - Botón "volver arriba" flotante
-    - Carga de Bootstrap JS y todos los archivos de validaciones
-======================================================================
---}}
 <!DOCTYPE html>
 <html lang="es">
 <head>

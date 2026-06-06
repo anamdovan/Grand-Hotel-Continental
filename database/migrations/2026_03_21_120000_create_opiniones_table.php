@@ -11,14 +11,9 @@ return new class extends Migration
     {
         Schema::create('opiniones', function (Blueprint $table) {
             $table->id();
-
-            // Puntuación de 1 a 5 estrellas
             $table->unsignedTinyInteger('puntuacion');
-
-            // Comentario del cliente
             $table->text('comentario');
-
-            // FOREIGN KEYS
+            
             $table->foreignId('idUser')
                   ->constrained('users')
                   ->onDelete('cascade')->onUpdate('cascade');

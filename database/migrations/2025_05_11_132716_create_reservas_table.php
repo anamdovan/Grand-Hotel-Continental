@@ -11,21 +11,13 @@ return new class extends Migration
     {
         Schema::create('reservas', function (Blueprint $table) {
 
-            $table->id();  // PK auto-incremental
-
-            // Fechas de la reserva. dateTime() guarda fecha + hora.
+            $table->id(); 
             $table->dateTime('fechaEntrada');
             $table->dateTime('fechaSalida');
-
-            // Estado de la reserva (ENUM con valores permitidos).
-            // default → recién creada siempre está 'pendiente'.
             $table->enum('estado', ['pendiente', 'confirmada', 'cancelada', 'completada'])
                   ->default('pendiente');
-
             // nullable porque podría rellenarse después del precálculo.
             $table->decimal('total', 10, 2)->nullable();
-
-            // Notas opcionales del cliente (ej: "necesito cama supletoria")
             $table->text('notas')->nullable();
 
             $table->foreignId('idUser')

@@ -12,8 +12,6 @@ return new class extends Migration
         Schema::create('habitaciones', function (Blueprint $table) {
 
             $table->id();   // PK auto-incremental
-
-            // unique() impide tener dos habitaciones con el mismo número.
             $table->string('numero', 10)->unique();
             $table->string('tipo', 50);
             $table->decimal('precio', 8, 2);

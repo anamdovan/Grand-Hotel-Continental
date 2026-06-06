@@ -29,25 +29,15 @@ class Reserva extends Model
 
 
     /**
-     *  getReservasPorMes()
-     *  -----------------------------------------------------------------
-     *  Método ESTÁTICO que devuelve un array con el número de reservas
+     *  Método devuelve un array con el número de reservas
      *  creadas en cada uno de los 12 meses del AÑO ACTUAL.
-     *
      *  Lo uso en el DASHBOARD para pintar la gráfica
-     *
-     *  Cada elemento del array tiene:
-     *    - 'mes'   →  etiqueta legible (ej: "Enero", "Febrero"...)
-     *    - 'total' →  número de reservas creadas en ese mes
-     *
-     *  Se llama así desde fuera (sin instanciar la clase):
-     *    $datos = Reserva::getReservasPorMes();
      */
     public static function getReservasPorMes()
     {
         $datos = [];
 
-        // Año actual (ej: 2026)
+        // Año actual
         $anioActual = Carbon::now()->year;
 
         // Recorremos los 12 meses del año (enero a diciembre)
@@ -84,43 +74,27 @@ class Reserva extends Model
     }
 
 
-    /**
-     *  Relación "muchos a uno":
-     *  Muchas reservas pueden ser de la MISMA habitación (en distintas fechas).
-     */
+    //Relación "muchos a uno"
     public function habitacion()
     {
         return $this->belongsTo(Habitacion::class, 'idHabitacion');
     }
 
-
-    /**
-     *  Relación "uno a uno" (hasOne):
-     *  Una reserva tiene UN pago 
-     */
+    // Relación "uno a uno"
     public function pago()
     {
         return $this->hasOne(Pago::class, 'idReserva');
     }
 
+    // Relación "uno a uno" 
 
-    /**
-     *  Relación "uno a uno" (hasOne):
-     *  Una reserva puede tener UNA opinión (o ninguna, si el cliente
-     *  todavía no ha valorado su estancia).
-     */
     public function opinion()
     {
         return $this->hasOne(Opinion::class, 'idReserva');
     }
 
 
-    /**
-     *  Relación "muchos a muchos" (belongsToMany):
-     *  Una reserva puede incluir VARIOS servicios extras (desayuno, spa...).
-     *  Pasa por la tabla intermedia 'reserva_servicio'.
-     *
-     */
+    // Relación "muchos a muchos" 
     public function servicios()
     {
         return $this->belongsToMany(

@@ -13,15 +13,10 @@ return new class extends Migration
 
             $table->id();
 
-            // Cuándo se emitió la factura
             $table->dateTime('fechaEmision');
-
-            // Total facturado (8 dígitos, 2 decimales → hasta 999.999,99 €)
             $table->decimal('total', 8, 2);
-
             $table->timestamps();
 
-            // FK a pagos: cada factura está vinculada a UN pago.
             $table->unsignedBigInteger('idPago');
             $table->foreign('idPago')
                   ->references('id')->on('pagos')

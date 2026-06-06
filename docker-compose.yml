@@ -1,11 +1,3 @@
-# =====================================================================
-#  docker-compose.yml - Orquestación de los 3 contenedores del proyecto
-#  ---------------------------------------------------------------------
-#  Define los servicios que componen la aplicación:
-#    - app : Laravel + Apache + PHP (construido desde el Dockerfile)
-#    - db  : Base de datos MariaDB
-#    - pma : phpMyAdmin para gestionar la base de datos por navegador
-# =====================================================================
 
 services:
 
@@ -13,14 +5,14 @@ services:
   # Servicio 1: APP (Laravel + Apache)
   # ---------------------------------------------------------------
   app:
-    build: .                              # construye usando el Dockerfile de esta carpeta
+    build: .                             
     container_name: ghc_app
     ports:
-      - "8080:80"                         # http://localhost:8080 → puerto 80 del contenedor
+      - "8080:80"                        
     volumes:
-      - .:/var/www/html                   # monta el código del proyecto dentro del contenedor
+      - .:/var/www/html                  
     depends_on:
-      - db                                # espera a que la BD esté lista
+      - db                                
     environment:
       DB_HOST: db
       DB_PORT: 3306
@@ -42,9 +34,9 @@ services:
       MARIADB_PASSWORD: laravel1234
       MARIADB_ROOT_PASSWORD: root1234
     volumes:
-      - db_data:/var/lib/mysql            # los datos persisten aunque pare el contenedor
+      - db_data:/var/lib/mysql            
     ports:
-      - "3307:3306"                       # se accede en localhost:3307 desde tu PC
+      - "3307:3306"                       
 
 
   # ---------------------------------------------------------------
@@ -55,17 +47,13 @@ services:
     container_name: ghc_pma
     restart: unless-stopped
     ports:
-      - "8081:80"                         # http://localhost:8081
+      - "8081:80"                        
     environment:
-      PMA_HOST: db                        # conecta con el contenedor de MariaDB
+      PMA_HOST: db                       
       PMA_PORT: 3306
     depends_on:
       - db
 
 
-# =====================================================================
-#  Volúmenes nombrados (para que los datos de la BD no se borren al
-#  apagar el contenedor).
-# =====================================================================
 volumes:
   db_data:

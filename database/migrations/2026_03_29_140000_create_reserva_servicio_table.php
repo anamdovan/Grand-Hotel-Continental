@@ -12,12 +12,10 @@ return new class extends Migration
         Schema::create('reserva_servicio', function (Blueprint $table) {
             $table->id();
 
-            // FK a 'reservas'
             $table->foreignId('idReserva')
                   ->constrained('reservas')
                   ->onDelete('cascade')->onUpdate('cascade');
 
-            // FK a 'servicios'
             $table->foreignId('idServicio')
                   ->constrained('servicios')
                   ->onDelete('cascade')->onUpdate('cascade');
