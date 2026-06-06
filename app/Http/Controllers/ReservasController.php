@@ -17,8 +17,6 @@ class ReservasController extends Controller
 
     public function mostrar()
     {
-        // Reserva::all() ejecuta un SELECT * FROM reservas
-        // y devuelve una Collection de objetos Reserva.
         $reservas = Reserva::all();
 
         // Pasamos la colección a la vista 'reservas' (resources/views/reservas.blade.php).
@@ -28,7 +26,6 @@ class ReservasController extends Controller
 
     public function mostrarFormIns()
     {
-        // Solo habitaciones disponibles (no enseñamos las ocupadas)
         $habitaciones = Habitacion::where('estado', 'disponible')->get();
 
         // Todos los usuarios para el autocompletado AJAX del cliente
@@ -55,6 +52,8 @@ class ReservasController extends Controller
         ], [
             'fechaEntrada.after_or_equal' => 'La fecha de entrada no puede ser anterior a hoy.',
             'fechaSalida.after'           => 'La fecha de salida debe ser posterior a la de entrada.',
+            'idUser.required'             => 'Debes seleccionar un cliente válido de la lista.',
+            'idUser.integer'              => 'El cliente seleccionado no es válido.',
         ]);
 
         $titular = User::find($request->idUser);
@@ -111,6 +110,9 @@ class ReservasController extends Controller
             'estado'       => ['required', 'string'],
             'idUser'       => ['required', 'integer'],
             'idHabitacion' => ['required', 'integer'],
+        ], [
+            'idUser.required' => 'Debes seleccionar un cliente válido de la lista.',
+            'idUser.integer'  => 'El cliente seleccionado no es válido.',
         ]);
 
         // Regla de negocio: el nuevo titular tiene que ser cliente.
@@ -146,7 +148,6 @@ class ReservasController extends Controller
         $reserva->idUser       = $request->idUser;
         $reserva->idHabitacion = $request->idHabitacion;
 
-        // save() ejecuta UPDATE reservas SET ... WHERE id = $id
         $reserva->save();
 
         return redirect('/admin/reservas');
@@ -156,7 +157,7 @@ class ReservasController extends Controller
     public function eliminar($id)
     {
         $reserva = Reserva::where('id', $id)->first();
-        $reserva->delete();  // DELETE FROM reservas WHERE id = $id
+        $reserva->delete();  
         return redirect('/admin/reservas');
     }
 
@@ -170,42 +171,6 @@ class ReservasController extends Controller
             'status'   => 200,
             'reservas' => $reservas
         ]);
-    }
-
-
-    public function buscarUsuarios(Request $request)
-    {
-        // Cogemos el parámetro ?q=... y le quitamos espacios al borde.
-        // Si no llega 'q', usamos cadena vacía por defecto.
-        $q = trim($request->input('q', ''));
-
-        // No buscamos hasta tener al menos 2 letras (evita ruido y carga al servidor)
-        if (strlen($q) < 2) {
-            return response()->json([]);  // devolvemos array vacío en JSON
-        }
-
-        // Solo usuarios con rol CLIENTE (idRol = 3).
-        // Los admins y recepcionistas NO pueden ser titulares de reservas:
-        // solo pueden crearlas a nombre de un cliente real.
-        // Por eso filtro el autocompletado para que únicamente devuelva
-        // gente con rol cliente.
-        //
-        // SELECT id, nombre, apellidos, email
-        // FROM users
-        // WHERE idRol = 3
-        //   AND (nombre LIKE '%texto%' OR apellidos LIKE '%texto%' OR email LIKE '%texto%')
-        // LIMIT 10
-        $users = User::where('idRol', 3)
-                    ->where(function ($query) use ($q) {
-                        $query->where('nombre',    'like', "%{$q}%")
-                              ->orWhere('apellidos', 'like', "%{$q}%")
-                              ->orWhere('email',     'like', "%{$q}%");
-                    })
-                    ->limit(10)
-                    ->get(['id', 'nombre', 'apellidos', 'email']);
-
-        //convierte la colección a JSON.
-        return response()->json($users);
     }
 
 

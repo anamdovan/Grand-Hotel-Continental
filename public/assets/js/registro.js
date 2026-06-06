@@ -39,7 +39,7 @@ function validarPasswordCoincide(pass, rePass) {
 
 
 /* =====================================================================
-   AUXILIAR INTERNO: validar un campo mientras se escribe
+   Funicón génerica:  validar un campo mientras se escribe
  ===================================================================== */
 
 function validarCampoEnTiempoReal(inputId, validador, mensajeError) {
@@ -57,6 +57,13 @@ function validarCampoEnTiempoReal(inputId, validador, mensajeError) {
             mostrarError(input, mensajeError);
         }
     });
+    
+    input.addEventListener('blur', function () {
+        if (input.value.trim() === '') {
+            mostrarError(input, 'Este campo es obligatorio.');
+            }
+        });    
+    
 }
 
 

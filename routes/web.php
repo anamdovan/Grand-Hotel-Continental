@@ -84,7 +84,6 @@ Route::middleware('role:admin,recepcionista')->prefix('admin')->group(function (
     Route::post('/habitaciones/editar/{id}',   [HabitacionesController::class, 'editar']);
 
     // ----- RESERVAS (CRUD completo para ambos) -----
-    Route::get('/reservas/buscarUsuarios',     [ReservasController::class, 'buscarUsuarios']);
     Route::get('/reservas',                    [ReservasController::class, 'mostrar']);
     Route::get('/reservas/crear',              [ReservasController::class, 'mostrarFormIns']);
     Route::post('/reservas/crear',             [ReservasController::class, 'insertar']);

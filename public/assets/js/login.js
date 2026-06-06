@@ -28,8 +28,8 @@ function validarLogin(form) {
     var todoOk = true;
 
     // EMAIL: debe tener formato válido
-    if (!validarEmail(emailInput.value.trim())) {
-        mostrarError(emailInput, 'Introduce un email válido (ejemplo@correo.com).');
+    if (emailInput.value.trim() === '') {
+        mostrarError(emailInput, 'El email es obligatorio.');
         todoOk = false;
     } else {
         mostrarOk(emailInput);
@@ -62,7 +62,7 @@ function validarLogin(form) {
 //     });
 // }
 
-//opción corta usando en el argumento la función validadora
+//opción corta usando en el argumento la función validadora     
 validarCampoEnTiempoReal('email', validarEmail, 'Introduce un email válido.');
 
 

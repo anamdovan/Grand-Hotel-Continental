@@ -12,7 +12,7 @@
     $clienteId    = $esEdicion ? $reserva->idUser : old('idUser', '');
     $clienteTexto = '';
     if ($esEdicion && $reserva->user) {
-        $clienteTexto = $reserva->user->nombre . ' ' . $reserva->user->apellidos . ' (' . $reserva->user->email . ')';
+        $clienteTexto = $reserva->user->email;
     }
 @endphp
 
@@ -51,35 +51,18 @@
             @csrf
 
             <div class="row g-3">
-                {{-- ============ CLIENTE: AUTOCOMPLETADO AJAX ============ --}}
+                {{-- ============ CLIENTE (desplegable) ============ --}}
                 <div class="col-md-6">
-                    <div class="autocompletado-wrapper">
-                        <div class="form-floating">
-                            {{-- La URL del endpoint AJAX va como data-url para el JS --}}
-                            <input type="text"
-                                   id="buscadorCliente"
-                                   class="form-control"
-                                   placeholder="Buscar cliente..."
-                                   value="{{ $clienteTexto }}"
-                                   autocomplete="off"
-                                   aria-autocomplete="list"
-                                   aria-controls="resultadosCliente"
-                                   data-url="{{ url('/admin/reservas/buscarUsuarios') }}"
-                                   required>
-                            <label for="buscadorCliente">
-                                <i class="bi bi-person" aria-hidden="true"></i> Cliente *
-                            </label>
-                        </div>
-                        {{-- Campo oculto con el ID real --}}
-                        <input type="hidden" name="idUser" id="idUser" value="{{ $clienteId }}">
-
-                        {{-- Resultados del autocompletado --}}
-                        <div class="autocompletado-resultados" id="resultadosCliente" role="listbox"></div>
-
-                        <small class="text-muted d-block mt-1">
-                            <i class="bi bi-info-circle" aria-hidden="true"></i>
-                            Escribe al menos 2 letras del nombre, apellidos o email
-                        </small>
+                    <div class="form-floating">
+                        <select name="idUser" id="idUser" class="form-select" required>
+                            <option value="" disabled {{ empty($clienteId) ? 'selected' : '' }}>Selecciona un cliente...</option>
+                            @foreach($users->where('idRol', 3) as $u)
+                                <option value="{{ $u->id }}" {{ $clienteId == $u->id ? 'selected' : '' }}>
+                                    {{ $u->email }}
+                                </option>
+                            @endforeach
+                        </select>
+                        <label for="idUser"><i class="bi bi-person" aria-hidden="true"></i> Cliente *</label>
                     </div>
                 </div>
 
@@ -152,9 +135,4 @@
         </form>
     </div>
 </div>
-@endsection
-
-@section('js')
-{{-- Lógica del autocompletado de cliente separada en un archivo JS aparte. --}}
-<script src="{{ asset('assets/js/autocompletarCliente.js') }}"></script>
 @endsection

@@ -27,9 +27,6 @@ class SesionController extends Controller
         // Auth::attempt() busca en la tabla 'users' un usuario con ese email,
         if (Auth::attempt($credenciales)) {
 
-            //regenerar el ID de sesión.
-            // Esto evita ataques de "session fixation": si alguien hubiera
-            // robado tu cookie ANTES del login, ahora ya no le sirve
             $request->session()->regenerate();
 
             $user = Auth::user();
@@ -114,7 +111,7 @@ class SesionController extends Controller
 
 
     // ===================================================================
-    //  CERRAR SESIÓN (logout)
+    //  CERRAR SESIÓN
     //  --------------------------------------------------------------
     //
     public function cerrarSesion()

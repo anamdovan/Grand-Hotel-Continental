@@ -1,0 +1,71 @@
+/* =========================================================
+   BOTONES.SCSS - Grand Hotel Continental
+   Sobrescribe el foco azul de Bootstrap por uno dorado.
+   ========================================================= */
+.btn:focus, .btn:active, .btn.active, .btn:focus-visible {
+  outline: none !important;
+  box-shadow: 0 0 0 0.25rem rgba(201, 169, 97, 0.35) !important;
+  border-color: #c9a961 !important;
+}
+.btn.btn-primary:focus, .btn.btn-primary:active, .btn.btn-primary.active {
+  background-color: #a8893f !important;
+  border-color: #a8893f !important;
+  box-shadow: 0 0 0 0.25rem rgba(201, 169, 97, 0.55) !important;
+}
+.btn.btn-outline-primary:focus, .btn.btn-outline-primary:active {
+  background-color: #c9a961 !important;
+  color: #1a1a1a !important;
+  box-shadow: 0 0 0 0.25rem rgba(201, 169, 97, 0.35) !important;
+}
+.btn.btn-dark:focus, .btn.btn-dark:active {
+  box-shadow: 0 0 0 0.25rem rgba(201, 169, 97, 0.35) !important;
+}
+
+.form-control:focus,
+.form-select:focus {
+  outline: none !important;
+  box-shadow: 0 0 0 0.25rem rgba(201, 169, 97, 0.35) !important;
+  border-color: #c9a961 !important;
+}
+
+a:focus, a:focus-visible {
+  outline: 2px solid #c9a961;
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+.navbar-toggler:focus {
+  box-shadow: 0 0 0 0.25rem rgba(201, 169, 97, 0.35) !important;
+}
+
+.carousel-control-prev:focus,
+.carousel-control-next:focus {
+  outline: 2px solid #c9a961;
+}
+
+.scroll-to-top:focus, .scroll-to-top:active {
+  outline: none !important;
+  box-shadow: 0 0 0 0.25rem rgba(201, 169, 97, 0.35) !important;
+  border-color: #c9a961 !important;
+}
+
+.form-check-input:focus {
+  outline: none !important;
+  box-shadow: 0 0 0 0.25rem rgba(201, 169, 97, 0.35) !important;
+  border-color: #c9a961 !important;
+}
+.form-check-input:checked {
+  background-color: #c9a961;
+  border-color: #a8893f;
+}
+
+.btn-close:focus {
+  outline: none !important;
+  box-shadow: 0 0 0 0.25rem rgba(201, 169, 97, 0.35) !important;
+  border-color: #c9a961 !important;
+}
+
+.page-link:focus {
+  box-shadow: 0 0 0 0.25rem rgba(201, 169, 97, 0.35) !important;
+  color: #a8893f;
+}/*# sourceMappingURL=botones.css.map */
