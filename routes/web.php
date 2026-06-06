@@ -1,17 +1,5 @@
 <?php
 
-/* =====================================================================
- |  routes/web.php
- |  ---------------------------------------------------------------------
- |  Aquí se define el "mapa" de URLs del proyecto.
- |  Cada Route::get() o Route::post() conecta una URL con el método del
- |  controlador correspondiente.
- |
- |  Middlewares usados:
- |    - 'auth'                       → solo usuarios logueados
- |    - 'role:admin,recepcionista'   → solo usuarios con esos roles
- | =====================================================================*/
-
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HabitacionesController;
 use App\Http\Controllers\ReservasController;
