@@ -23,19 +23,6 @@
     </a>
 </div>
 
-@if(session('mensaje'))
-    <div class="alert alert-success d-flex align-items-center" role="alert">
-        <i class="bi bi-check-circle-fill me-2" aria-hidden="true"></i>
-        <div>{{ session('mensaje') }}</div>
-    </div>
-@endif
-
-@if(session('error'))
-    <div class="alert alert-danger d-flex align-items-center" role="alert">
-        <i class="bi bi-exclamation-triangle-fill me-2" aria-hidden="true"></i>
-        <div>{{ session('error') }}</div>
-    </div>
-@endif
 
 <div class="card">
     <div class="card-body">
