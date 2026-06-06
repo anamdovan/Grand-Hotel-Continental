@@ -93,4 +93,5 @@
 @section('js')
 {{-- Lógica del formulario de login (validación + listeners). --}}
 <script src="{{ asset('assets/js/login.js') }}"></script>
+<script src="{{ asset('assets/js/registro.js') }}"></script>
 @endsection
