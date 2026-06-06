@@ -35,7 +35,6 @@ function validarLogin(form) {
         mostrarOk(emailInput);
     }
 
-    // CONTRASEÑA: no puede estar vacía (no validamos seguridad, puede ser antigua)
     if (passwordInput.value.trim() === '') {
         mostrarError(passwordInput, 'La contraseña no puede estar vacía.');
         todoOk = false;
@@ -48,22 +47,24 @@ function validarLogin(form) {
 
 
 /* =====================================================================
-   LISTENERS AL CARGAR LA PÁGINA
+   Validación del email en tiempo real
  ===================================================================== */
+// var emailInput = document.getElementById('email');
+// if (emailInput) {
+//     emailInput.addEventListener('input', function () {
+//         if (emailInput.value.trim() === '') {
+//             resetearInput(emailInput);
+//         } else if (validarEmail(emailInput.value)) {
+//             mostrarOk(emailInput);
+//         } else {
+//             mostrarError(emailInput, 'Introduce un email válido (ejemplo@correo.com).');
+//         }
+//     });
+// }
 
-// Validación del email en tiempo real (mientras escribe)
-var emailInput = document.getElementById('email');
-if (emailInput) {
-    emailInput.addEventListener('input', function () {
-        if (emailInput.value.trim() === '') {
-            resetearInput(emailInput);
-        } else if (validarEmail(emailInput.value)) {
-            mostrarOk(emailInput);
-        } else {
-            mostrarError(emailInput, 'Introduce un email válido (ejemplo@correo.com).');
-        }
-    });
-}
+//opción corta usando en el argumento la función validadora
+validarCampoEnTiempoReal('email', validarEmail, 'Introduce un email válido.');
+
 
 // Submit del formulario
 document.getElementById('formLogin').addEventListener('submit', function (e) {
