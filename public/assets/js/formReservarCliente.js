@@ -21,8 +21,14 @@ document.addEventListener('DOMContentLoaded', function () {
         //Subtotal habitación (noches * precio)
         var subTotHabit = 0;
         if (entrada && salida) {
-            var d1   = new Date(entrada);
+            // Fórmula de las noches
+            var d1   = new Date(entrada); //convierte la fecha en obj
             var d2   = new Date(salida);
+            // se restan las dos fechas y el resultado son MILISEGUDNOS
+            //y para para pasar esos milisegundos a días hay que dividir
+            //entre cuantos milisegundos tiene un día: 1000 * 60 * 60 * 24
+            //y lo redondeo el resultado para que no salgan cosas raras
+            //como 2,99 noches
             var diff = Math.round((d2 - d1) / (1000 * 60 * 60 * 24));
             if (diff > 0) {
                 noches.textContent   = diff;
@@ -37,7 +43,7 @@ document.addEventListener('DOMContentLoaded', function () {
             subtotal.textContent = '— €';
         }
 
-        //Servicios extras seleccionados
+        //Sumar servicios marcados
         var totalExtras = 0;
         document.querySelectorAll('.servicio-check:checked').forEach(function (cb) {
             totalExtras += parseFloat(cb.dataset.precio);

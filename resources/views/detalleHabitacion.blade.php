@@ -17,12 +17,10 @@
         </nav>
 
         <div class="row g-5">
-            {{-- ============ CAROUSEL DE IMÁGENES ============
-                 3 fotos representativas que se muestran en todas las habitaciones. --}}
+            {{-- 3 img que se muestran en todas las habitaciones. --}}
             <div class="col-lg-7">
                 <div id="carouselHabitacion" class="carousel slide" data-bs-ride="carousel" aria-label="Galería de imágenes">
 
-                    {{-- Indicadores (los 3 puntitos de abajo) --}}
                     <div class="carousel-indicators">
                         <button type="button" data-bs-target="#carouselHabitacion" data-bs-slide-to="0"
                                 class="active" aria-current="true" aria-label="Imagen 1"></button>
