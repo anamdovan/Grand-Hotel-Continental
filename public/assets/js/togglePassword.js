@@ -79,11 +79,4 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    // Popovers de Bootstrap (parecidos a tooltips pero más grandes)
-    if (typeof bootstrap !== 'undefined' && bootstrap.Popover) {
-        var popovers = document.querySelectorAll('[data-bs-toggle="popover"]');
-        popovers.forEach(function (el) {
-            new bootstrap.Popover(el);
-        });
-    }
 });
