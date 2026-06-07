@@ -9,8 +9,8 @@ function confirmarEliminacion(event, url, mensaje) {
     var pMensaje  = document.getElementById('modalConfirmarMensaje');
 
     //Actualizo el texto y la URL del botón "Sí, eliminar"
-    if (mensaje) pMensaje.textContent = mensaje;
-    btnConfir.setAttribute('href', url);
+    if (mensaje) pMensaje.textContent = mensaje;   // pone el texto
+    btnConfir.setAttribute('href', url);           // mete la URL en el btn de borrar Sí 
 
     //Abrimos el modal con la API de Bootstrap
     var modal = bootstrap.Modal.getOrCreateInstance(modalEl);

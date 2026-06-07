@@ -74,6 +74,7 @@ class Opinion extends Model
     /**
      *  Devuelve las 6 mejores opiniones (puntuación >= 4) ordenadas por
      *  fecha más reciente
+     * Testimonio
      */
     public static function getDestacadas()
     {
